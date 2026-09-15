@@ -1,0 +1,7 @@
+# Vercel CLI로 올릴 때 제외할 파일 (비밀 키·로컬 빌드 결과)
+.env
+.env*.local
+.next
+node_modules
+.pglite
+*.tsbuildinfo
