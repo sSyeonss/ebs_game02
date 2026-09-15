@@ -1,0 +1,23 @@
+{
+  "name": "ebs-drawing-quiz-intro",
+  "version": "0.1.0",
+  "private": true,
+  "description": "그려서 배워요! 소개 영상 (Remotion)",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render Intro out/intro.mp4",
+    "still": "remotion still Intro out/still.png --frame=600"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.524",
+    "@remotion/fonts": "4.0.524",
+    "@remotion/transitions": "4.0.524",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "remotion": "4.0.524"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "typescript": "^5"
+  }
+}

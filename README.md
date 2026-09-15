@@ -1,12 +1,12 @@
 # 그려서 배워요! 🏫✏️
 
+![그려서 배워요! 소개 영상](./docs/images/intro.gif)
+
 칠판에 그림을 그리고 친구들이 맞히는 **초등 교육용 실시간 그림 퀴즈 게임**입니다.
 AI 펭수가 제시어를 내고, 오답을 격려하고, 힌트를 주고, 정답자를 축하하며 쉬운 설명을 들려줍니다.
 
 - 기술: Next.js 16 (App Router) · Neon PostgreSQL · OpenAI API · Vercel
 - 기획 문서: [PRD.md](./PRD.md)
-
-![그려서 배워요! 게임 화면](./docs/images/game.png)
 
 ## 주요 기능
 
@@ -23,8 +23,10 @@ AI 펭수가 제시어를 내고, 오답을 격려하고, 힌트를 주고, 정�
 | 홈 (교실 입장하기) | 대기실 |
 | --- | --- |
 | ![홈 화면](./docs/images/home.png) | ![대기실 화면](./docs/images/lobby.png) |
-| **주제·난이도 고르기** | **정답 발표 · 펭수 설명** |
-| ![주제 선택 화면](./docs/images/topic.png) | ![정답 발표 화면](./docs/images/reveal.png) |
+| **주제·난이도 고르기** | **칠판에 그리기** |
+| ![주제 선택 화면](./docs/images/topic.png) | ![그리기 화면](./docs/images/game.png) |
+| **정답 발표 · 펭수 설명** | |
+| ![정답 발표 화면](./docs/images/reveal.png) | |
 
 ## Vercel + Neon 배포 방법
 
@@ -90,6 +92,20 @@ npm run dev
 `.env.local` 예시는 [.env.example](./.env.example) 참고. 혼자 테스트할 때는 `MIN_PLAYERS=1`,
 시간을 짧게 하려면 `GAME_TIME_SCALE=0.2`(제한 시간 1/5)를 넣으면 편해요. 브라우저 창 여러 개(시크릿 창 포함)로 여러 명을 흉내 낼 수 있어요.
 
+## 소개 영상 (Remotion)
+
+맨 위 GIF는 `video/` 폴더의 [Remotion](https://www.remotion.dev) 프로젝트로 만든 40초 소개 영상이에요.
+
+```bash
+cd video
+npm install
+npm run studio   # 브라우저에서 미리보기·수정
+npm run render   # out/intro.mp4 (1920×1080, 30fps)
+```
+
+장면 길이는 `video/src/theme.ts`, 각 장면은 `video/src/scenes/`에 있어요.
+> Remotion은 개인·직원 3명 이하 회사는 무료, 그 외 회사·기관은 [회사 라이선스](https://www.remotion.dev/license)가 필요해요.
+
 ## 펭수 이미지
 
 `public/pengsoo.png`가 AI 펭수 아바타로 쓰입니다. 파일을 바꾸면 이미지가 바뀌고, 파일이 없으면 기본 펭귄 그림이 나와요.
@@ -115,7 +131,8 @@ src/
     npc.ts                    NPC 로봇 친구 (맞히기·AI 그림 그리기)
     wordbank.ts               내장 단어장 (AI 실패 시 사용)
 db/schema.sql                 Neon 테이블 스키마
-docs/images/                  README 화면 캡처
+docs/images/                  README 화면 캡처·소개 GIF
+video/                        Remotion 소개 영상 프로젝트
 ```
 
 ## 실시간 동기화 방식과 사용량
